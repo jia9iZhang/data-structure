@@ -141,10 +141,20 @@ public class LinkedList {
     }
 
     /**
-     * 插入新节点
+     * 某个位置插入新节点
      */
     public void insertNewNode(int position, int target) {
-
+        Node idx = dummyHead;
+        int i=0;
+        while (idx.next!=null&&i<position){
+            idx = idx.next;
+            i++;
+        }
+        //创建新节点
+        Node newNode = new Node(target);
+        newNode.next = idx.next;
+        idx.next = newNode;
+        size++;
     }
 }
 

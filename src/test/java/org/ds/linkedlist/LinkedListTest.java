@@ -89,4 +89,16 @@ public class LinkedListTest {
             System.out.println(integer);
         }
     }
+
+    @Test
+    public void testInsertNewNode() {
+        LinkedList linkedList = new LinkedList();
+        linkedList.createLinkedList(new int[]{1, 2, 3, 4, 5});
+        linkedList.insertNewNode(2,6);
+
+        for (Integer integer : linkedList.getNodeList()) {
+            System.out.println(integer);
+        }
+        System.out.println("链表长度为："+linkedList.getSize());
+    }
 }
