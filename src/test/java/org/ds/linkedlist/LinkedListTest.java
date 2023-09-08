@@ -101,4 +101,15 @@ public class LinkedListTest {
         }
         System.out.println("链表长度为："+linkedList.getSize());
     }
+
+    @Test
+    public void testReverse() {
+        LinkedList linkedList = new LinkedList();
+        linkedList.createLinkedList(new int[]{1, 2, 3, 4, 5});
+
+        linkedList.reverse();
+        for (Integer integer : linkedList.getNodeList()) {
+            System.out.println(integer);
+        }
+    }
 }

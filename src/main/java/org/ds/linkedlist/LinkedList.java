@@ -44,15 +44,15 @@ public class LinkedList {
      *
      * @return
      */
-    public ArrayList<Integer> getNodeList(int length) {
-        ArrayList<Integer> nodeList = new ArrayList<>();
-        Node idx = dummyHead;
-        for (int i = 0; i < length; i++) {
-            idx = idx.next;
-            nodeList.add(idx.data);
-        }
-        return nodeList;
-    }
+    //public ArrayList<Integer> getNodeList(int length) {
+    //    ArrayList<Integer> nodeList = new ArrayList<>();
+    //    Node idx = dummyHead;
+    //    for (int i = 0; i < length; i++) {
+    //        idx = idx.next;
+    //        nodeList.add(idx.data);
+    //    }
+    //    return nodeList;
+    //}
 
     /**
      * 遍历单链表
@@ -155,6 +155,30 @@ public class LinkedList {
         newNode.next = idx.next;
         idx.next = newNode;
         size++;
+    }
+    /**
+     * 翻转链表
+     */
+    public void reverse(){
+        //没有节点，或者只有一个节点，不需要操作
+        if (dummyHead.next==null||dummyHead.next.next==null){}
+
+        Node prev = null;
+        Node current = dummyHead.next;
+        Node after;
+
+        /**
+         * 当前节点的next指针指向前一个节点，以实现链表的反向连接。然后，我们将prev指针移动到当前节点，current指针移动到下一个节点
+         * 继续迭代直到current指针为null，即遍历完整个链表，此时翻转完成。
+         * 更新虚拟头节点（dummyHead）的指向，将其指向翻转后链表的第一个节点（即prev指针指向的节点）
+         */
+        while (current!=null){
+            after = current.next;
+            current.next = prev;
+            prev = current;
+            current = after;
+        }
+        dummyHead.next = prev;
     }
 }
 
